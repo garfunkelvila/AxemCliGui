@@ -1,2 +1,2 @@
 # AxemCliGui
-Some of my OJT projects
+One of my OJT projects
