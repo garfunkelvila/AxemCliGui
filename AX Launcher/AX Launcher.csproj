@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE43ABA7-A17B-4C23-90CE-1DB3DCCCC034}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AX_Launcher</RootNamespace>
+    <AssemblyName>AXEM OFFLINE DEBUGGER TOOL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AX_Launcher.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsCrcConvert.cs" />
+    <Compile Include="Classes\clsLauncher.cs" />
+    <Compile Include="Classes\clsLauncherCommands.cs" />
+    <Compile Include="Classes\clsUtils.cs" />
+    <Compile Include="Dialogs\dlgBulkErase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgBulkErase.Designer.cs">
+      <DependentUpon>dlgBulkErase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\dlgFlashProg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgFlashProg.Designer.cs">
+      <DependentUpon>dlgFlashProg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\dlgLoadCalib.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgLoadCalib.Designer.cs">
+      <DependentUpon>dlgLoadCalib.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\dlgLoadFullHex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgLoadFullHex.Designer.cs">
+      <DependentUpon>dlgLoadFullHex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\dlgSaveCalib.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgSaveCalib.Designer.cs">
+      <DependentUpon>dlgSaveCalib.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\dlgSaveFullHex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\dlgSaveFullHex.Designer.cs">
+      <DependentUpon>dlgSaveFullHex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogs.Designer.cs">
+      <DependentUpon>frmLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\dlgBulkErase.resx">
+      <DependentUpon>dlgBulkErase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\dlgFlashProg.resx">
+      <DependentUpon>dlgFlashProg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\dlgLoadCalib.resx">
+      <DependentUpon>dlgLoadCalib.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\dlgLoadFullHex.resx">
+      <DependentUpon>dlgLoadFullHex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\dlgSaveCalib.resx">
+      <DependentUpon>dlgSaveCalib.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\dlgSaveFullHex.resx">
+      <DependentUpon>dlgSaveFullHex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogs.resx">
+      <DependentUpon>frmLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activity_monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activity_monitor_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activity_monitor_chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activity_monitor_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activity_monitor_warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address_book_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address_book_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address_book_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address_book_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\address_book_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_down_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket_back_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket_go_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basket_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_down_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_left_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_right_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue_arrow_up_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_bookmarks_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_flipped_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_flipped_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_page_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_page_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_rss_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comment_user_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_page_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_forward_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_reply_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_reply_all_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error_button_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_page_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hammer_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_back_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_go_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_button_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_button_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightbulb_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightbulb_off_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock_open_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newspaper_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newspaper_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newspaper_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newspaper_info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newspaper_rss_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newspaper_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_blank_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_blank_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_blank_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_blank_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_blank_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_table_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_table_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_table_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_table_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_table_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_text_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_text_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_text_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_text_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_text_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rss_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rss_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_download_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_upload_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\screen_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\screen_off_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\screwdriver_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_button_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_button_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_button_green_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_button_green_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_off_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\star_off16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twitter_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twitter_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_blue_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_rss_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_twitter_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_business_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_rss_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_twitter_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users_business_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_error_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_error_32_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_error_32_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_rss_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web_layout_twitter_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_blank_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_list_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_list_add_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_list_chart_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_list_close_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_list_error_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_list_info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_app_list_search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="OnShell.ico" />
+    <None Include="Resources\bulkerase.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
